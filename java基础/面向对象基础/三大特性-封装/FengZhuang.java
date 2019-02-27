@@ -2,7 +2,7 @@
 * @Author: 马磊  
 * @Date: 2019-02-27 14:25:55  
 * @Last Modified by:   马磊  * @Last Modified time: 2019-02-27 14:25:55  */
-//封装子类的属性，关键词 private1
+//封装子类的属性，关键词 private
 public class FengZhuang{
     public static void main(String[] args) {
         //实例化new
