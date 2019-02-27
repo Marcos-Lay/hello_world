@@ -9,6 +9,7 @@ public class JiCheng{
         cat.shut();
     }
 }
+//设计模式-模板方法
 class AnimalJC{
     String name;
     Integer age;
