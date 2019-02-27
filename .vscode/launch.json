@@ -2,6 +2,12 @@
     "configurations": [
         {
             "type": "java",
+            "name": "CodeLens (Launch) - JiCheng",
+            "request": "launch",
+            "mainClass": "JiCheng"
+        },
+        {
+            "type": "java",
             "name": "CodeLens (Launch) - FengZhuang",
             "request": "launch",
             "mainClass": "FengZhuang"
