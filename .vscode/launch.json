@@ -2,6 +2,20 @@
     "configurations": [
         {
             "type": "java",
+            "name": "CodeLens (Launch) - ShuRu",
+            "request": "launch",
+            "mainClass": "ShuRu",
+            "console": "integratedTerminal"
+        },
+        {
+            "type": "java",
+            "name": "CodeLens (Launch) - JDGC",
+            "request": "launch",
+            "mainClass": "JDGC",
+            "console": "integratedTerminal"
+        },
+        {
+            "type": "java",
             "name": "CodeLens (Launch) - JiCheng",
             "request": "launch",
             "mainClass": "JiCheng"
