@@ -2,6 +2,12 @@
     "configurations": [
         {
             "type": "java",
+            "name": "CodeLens (Launch) - DL",
+            "request": "launch",
+            "mainClass": "DL"
+        },
+        {
+            "type": "java",
             "name": "CodeLens (Launch) - ShuRu",
             "request": "launch",
             "mainClass": "ShuRu",
