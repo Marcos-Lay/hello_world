@@ -8,7 +8,7 @@
 | 参数 | 类型 | 说明 | 是否必填 |
 | ------ | ------ | ------ | ------ |
 | name | String | 传感器名称 | 是 |
-| sno | String | 传感器序列号(长度12位) | 是 |
+| sno | String | 传感器序列号(长度12位,只能为数字) | 是 |
 | lightPole | String | 对应灯杆ID | 是 |
 
 - 输出格式：
@@ -259,7 +259,7 @@
 
 | 参数 | 类型 | 说明 | 是否必填 |
 | ------ | ------ | ------ | ------ |
-| sno | String | 卡片序列号 | 是 |
+| sno | String | 卡片序列号(长度12位,只能为数字) | 是 |
 | name | String | 卡片名称 | 是 |
 
 - 输出格式：
@@ -299,7 +299,7 @@
 
 | 参数 | 类型 | 说明 | 是否必填 |
 | ------ | ------ | ------ | ------ |
-| id | String | 传感器ID | 是 |
+| id | String | 卡片ID | 是 |
 
 - 输出格式：
 
@@ -307,7 +307,7 @@
 | ------ | ------ | ------ |
 | code | Integer | 状态码 |
 | message | String | 返回提示 |
-| id | String | 删除设备ID |
+| id | String | 删除卡片的ID |
 | status | String | 返回状态信息 |
 
 
@@ -329,7 +329,7 @@
 
 | 参数 | 类型 | 说明 | 是否必填 |
 | ------ | ------ | ------ | ------ |
-| id | String | 传感器ID | 是 |
+| id | String | 卡片ID | 是 |
 | name | String | 卡片名称 | 是 |
 
 - 输出格式：
@@ -460,8 +460,8 @@
 
 | 参数 | 类型 | 说明 | 是否必填 |
 | ------ | ------ | ------ | ------ |
-| startData | String | 开始时间(yyyy-MM-dd HH-mm-ss) | 是 |
-| endData | String | 结束时间(yyyy-MM-dd HH-mm-ss) | 是 |
+| startDate | String | 开始时间(yyyy-MM-dd HH-mm-ss) | 是 |
+| endDate | String | 结束时间(yyyy-MM-dd HH-mm-ss) | 是 |
 | skip | String | 跳过条数 | 是 |
 | limit | String | 查询条数 | 是 |
 
@@ -534,7 +534,7 @@
 # RFID报警记录
 ## 查询离线报警
 - 概述：此接口用来查询离线报警记录
-- 接口定义：接口定义：http：// [域名]/app/rfidalarm/[version]/offline
+- 接口定义：接口定义：http：// [域名]/app/rfidalarm/[version]/offLine
 - 请求方式：POST
 - 输入格式：  
 
@@ -544,7 +544,7 @@
 | endData | String | 结束时间(yyyy-MM-dd HH-mm-ss) | 是 |
 | skip | String | 跳过条数 | 是 |
 | limit | String | 查询条数 | 是 |
-| search | String | 读卡器序列号（tagReaderSno） | 否 |
+| search | String | 读卡器序列号（tagReaderSno）（不支持模糊查询） | 否 |
 
 - 输出格式：
 
@@ -594,7 +594,7 @@
 | endData | String | 结束时间(yyyy-MM-dd HH-mm-ss) | 是 |
 | skip | String | 跳过条数 | 是 |
 | limit | String | 查询条数 | 是 |
-| search | String | 读卡器序列号（tagReaderSno） | 否 |
+| search | String | 读卡器序列号（tagReaderSno）（不支持模糊查询） | 否 |
 
 - 输出格式：
 
