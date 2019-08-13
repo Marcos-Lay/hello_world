@@ -304,7 +304,6 @@
 | id | String | 任务ID | 是 | 是 |
 | name | String | 定时亮度任务名称 | 否 | 是 |
 | brightness | String | 定时亮度任务的亮度(取值范围：1-255之间) | 否 | 否 |
-| taskStatus | String | 任务状态(0：关闭任务 1：开启任务) | 否 | 否 |
 | dateType | String | 日期类型(枚举类型：Range，All) | 否 | 否 |
 | startDate | String | 开始日期(yyyy-MM-dd) | 当dateType为Range时必填 | 否 |
 | endDate | String | 结束日期(yyyy-MM-dd) | 当dateType为Range时必填 | 否 |
@@ -313,7 +312,6 @@
 | endTime | String | 结束时间(HH:mm) | 当timeType为Range时必填 | 否 |
 | filterType | String | 星期类型(枚举类型：All，None) | 否 | 否 |
 | weekFilter | String | 任务执行的星期(1-7) | 当filterType为All时必填 | 否 |
-| brightness | String | 定时亮度任务的亮度(取值范围：1-255之间) |
 
 
 - 输出格式：
@@ -672,7 +670,6 @@
 | 参数 | 类型 | 说明 | 是否必填 | 是否唯一 |
 | ------ | ------ | ------ | ------ | ------ |
 | name | String | 定时开关屏任务名称 | 是 | 是 |
-| screenStatus | String | 屏幕状态(0：关闭 1：开启) | 是 | 否 |
 | dateType | String | 日期类型(枚举类型：Range，All) | 是 | 否 |
 | startDate | String | 开始日期(yyyy-MM-dd) | 当dateType为Range时必填 | 否 |
 | endDate | String | 结束日期(yyyy-MM-dd) | 当dateType为Range时必填 | 否 |
@@ -762,8 +759,6 @@
 | ------ | ------ | ------ | ------ | ------ |
 | id | String | 任务ID | 是 | 是 |
 | name | String | 定时开关屏任务名称 | 否 | 是 |
-| screenStatus | String | 屏幕状态(0：关闭 1：开启) | 否 | 否 |
-| taskStatus | String | 任务状态(0：关闭任务 1：开启任务) | 否 | 否 |
 | dateType | String | 日期类型(枚举类型：Range，All) | 否 | 否 |
 | startDate | String | 开始日期(yyyy-MM-dd) | 当dateType为Range时必填 | 否 |
 | endDate | String | 结束日期(yyyy-MM-dd) | 当dateType为Range时必填 | 否 |
@@ -789,7 +784,6 @@
 | ------ | ------ | ------ |
 | id | String | 定时开关屏任务ID（任务唯一标识，可用于查询，删除，更新操作） |
 | name | String | 定时开关屏任务名称 |
-| screenStatus | String | 屏幕状态(0：关闭 1：开启) |
 | schedules | JsonObject | 定时开关屏任务数据 |
 
 - schedules输出格式
