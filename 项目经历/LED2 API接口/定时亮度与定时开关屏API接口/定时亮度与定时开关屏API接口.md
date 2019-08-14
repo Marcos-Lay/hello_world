@@ -429,6 +429,15 @@
 | status | String | 返回状态信息 |
 | data | JsonObject | 返回数据 |
 
+- data输出格式
+
+| 参数 | 类型 | 说明 |
+| ------ | ------ | ------ |
+| id | String | 定时亮度任务ID（任务唯一标识，可用于查询，删除，更新操作） |
+| task_status | Integer | 任务状态 |
+| success | Array | 成功下发指令的设备ID |
+| fail | Array | 不成功下发指令的设备ID |
+
 - 输出json格式
 ```json
 {
@@ -467,6 +476,15 @@
 | message | String | 返回提示 |
 | status | String | 返回状态信息 |
 | data | JsonObject | 返回数据 |
+
+- data输出格式
+
+| 参数 | 类型 | 说明 |
+| ------ | ------ | ------ |
+| id | String | 定时亮度任务ID（任务唯一标识，可用于查询，删除，更新操作） |
+| task_status | Integer | 任务状态 |
+| success | Array | 成功下发指令的设备ID |
+| fail | Array | 不成功下发指令的设备ID |
 
 - 输出json格式
 ```json
@@ -913,6 +931,15 @@
 | message | String | 返回提示 |
 | status | String | 返回状态信息 |
 
+- data输出格式
+
+| 参数 | 类型 | 说明 |
+| ------ | ------ | ------ |
+| id | String | 定时亮度任务ID（任务唯一标识，可用于查询，删除，更新操作） |
+| task_status | Integer | 任务状态 |
+| success | Array | 成功下发指令的设备ID |
+| fail | Array | 不成功下发指令的设备ID |
+
 - 输出json格式
 ```json
 {
@@ -949,6 +976,15 @@
 | code | Integer | 状态码 |
 | message | String | 返回提示 |
 | status | String | 返回状态信息 |
+
+- data输出格式
+
+| 参数 | 类型 | 说明 |
+| ------ | ------ | ------ |
+| id | String | 定时亮度任务ID（任务唯一标识，可用于查询，删除，更新操作） |
+| task_status | Integer | 任务状态 |
+| success | Array | 成功下发指令的设备ID |
+| fail | Array | 不成功下发指令的设备ID |
 
 - 输出json格式
 ```json
