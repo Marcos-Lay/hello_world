@@ -409,7 +409,7 @@
 }
 ```
 
-### 开启定时亮度任务(暂时无法测试)
+### 开启定时亮度任务
 - 概述：此接口用来开启定时亮度任务
 - 接口定义：http：// [域名]/app/led2task/[version]/openTimedBrightness  
 - 请求方式：POST
@@ -430,9 +430,25 @@
 | data | JsonObject | 返回数据 |
 
 - 输出json格式
+```json
+{
+    "code":200,
+    "data":{
+        "fail":[
 
+        ],
+        "task_status":1,
+        "id":"5d53d08cf22affaa5d7953d9",
+        "success":[
+            "5d3818626c115218f829bf76"
+        ]
+    },
+    "message":"OK",
+    "status":"SUCCESS"
+}
+```
 
-### 关闭定时亮度任务(暂时无法测试)
+### 关闭定时亮度任务
 - 概述：此接口用来关闭定时亮度任务
 - 接口定义：http：// [域名]/app/led2task/[version]/closeTimedBrightness  
 - 请求方式：POST
@@ -453,7 +469,23 @@
 | data | JsonObject | 返回数据 |
 
 - 输出json格式
+```json
+{
+    "code":200,
+    "data":{
+        "fail":[
 
+        ],
+        "task_status":1,
+        "id":"5d53d08cf22affaa5d7953d9",
+        "success":[
+            "5d3818626c115218f829bf76"
+        ]
+    },
+    "message":"OK",
+    "status":"SUCCESS"
+}
+```
 ## 定时开关屏任务
 
 ### 根据ID查询定时开关屏任务
@@ -863,7 +895,7 @@
 }
 ```
 
-### 开启定时开关屏任务(暂时无法测试)
+### 开启定时开关屏任务
 - 概述：此接口用来开启定时开关屏任务
 - 接口定义：http：// [域名]/app/led2task/[version]/openSwitchScreen  
 - 请求方式：POST
@@ -882,8 +914,25 @@
 | status | String | 返回状态信息 |
 
 - 输出json格式
+```json
+{
+    "code":200,
+    "data":{
+        "fail":[
 
-### 关闭定时开关屏任务(暂时无法测试)
+        ],
+        "task_status":1,
+        "id":"5d53efdcf22affaa5d7953de",
+        "success":[
+            "5d3818626c115218f829bf76"
+        ]
+    },
+    "message":"OK",
+    "status":"SUCCESS"
+}
+```
+
+### 关闭定时开关屏任务
 - 概述：此接口用来关闭定时开关屏任务
 - 接口定义：http：// [域名]/app/led2task/[version]/closeSwitchScreen  
 - 请求方式：POST
@@ -902,6 +951,23 @@
 | status | String | 返回状态信息 |
 
 - 输出json格式
+- ```json
+{
+    "code":200,
+    "data":{
+        "fail":[
+
+        ],
+        "task_status":1,
+        "id":"5d53efdcf22affaa5d7953de",
+        "success":[
+            "5d3818626c115218f829bf76"
+        ]
+    },
+    "message":"OK",
+    "status":"SUCCESS"
+}
+```
 
 ## 定时亮度/定时开关屏通用任务
 
