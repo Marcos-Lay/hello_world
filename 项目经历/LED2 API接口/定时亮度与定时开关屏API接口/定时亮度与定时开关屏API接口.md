@@ -951,7 +951,7 @@
 | status | String | 返回状态信息 |
 
 - 输出json格式
-- ```json
+```json
 {
     "code":200,
     "data":{
