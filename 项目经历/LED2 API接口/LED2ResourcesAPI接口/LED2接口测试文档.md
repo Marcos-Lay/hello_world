@@ -1,6 +1,8 @@
 [toc]
 # LED2接口测试文档
+
 ## LED2Device接口测试文档 
+
 ### 分页查询设备
 - 接口链接：URL地址：http://[域名]/app/led2/[version]/dev_list
 - 请求方式：POST
@@ -76,7 +78,6 @@
 - 请求方式：POST
 - 测试示例
 ```java
-```java
     @Test
     public void dev_add() {
         JSONObject body = new JSONObject();
@@ -124,7 +125,7 @@
 - 接口链接：URL地址：http://[域名]/app/led2/[version]/dev_edit
 - 请求方式：POST
 - 测试示例
-```java
+```
     @Test
     public void dev_edit() {
         JSONObject body = new JSONObject();
@@ -462,15 +463,24 @@
 
 | 参数 | 方法返回（无data）| 结论 |
 | ------ | ------ | ------ |
+|skip/limit为负数|{"code":200,"id":"123","message":"OK","status":"SUCCESS"}|错误|
+|skip和limit为正常取值|{"code":200,"id":"123","message":"OK","status":"SUCCESS"}|正确|
 
-- 接口测试结果：
+- 接口测试结果：skip和limit出现负数的情况不应返回success，limit取值大小无限制，建议最大值为100，统一规范。
 
 ### 根据ID查询设备分组列表
-- 接口链接：URL地址：http://[域名]/app/led2/[version]/
+- 接口链接：URL地址：http://[域名]/app/led2/[version]/dev_by_groupId
 - 请求方式：POST
 - 测试示例
 ```java
-
+@Test
+    public void dev_by_groupId() {
+        JSONObject body = new JSONObject();
+        body.put("uid", "5c7779ac999a071a205f96c4");
+        body.put("id", "123");
+        String sync = getClient().sync("led2/v1_0/dev_by_groupId", body.toJSONString());
+        System.out.println(sync);
+    }
 ```
 - 输出结果
 ```json
@@ -480,62 +490,99 @@
 
 | 参数 | 方法返回（无data）| 结论 |
 | ------ | ------ | ------ |
+|uid不正确|{"code":200,"data":{},"id":"123","message":"OK","status":"SUCCESS"}|正确|
 
-- 接口测试结果：
+- 接口测试结果：填写错误uid时，接口正确，但是uid正确时，接口内部业务逻辑错误。
 
 ### 添加设备分组
-- 接口链接：URL地址：http://[域名]/app/led2/[version]/
+- 接口链接：URL地址：http://[域名]/app/led2/[version]/dev_group_add
 - 请求方式：POST
 - 测试示例
 ```java
-
+    @Test
+    public void dev_group_add() {
+        JSONObject body = new JSONObject();
+        body.put("devices","5bffc9eb4cb28b3020053833");
+        body.put("name", "123");
+        body.put("id", "123");
+        String sync = getClient().sync("led2/v1_0/dev_group_add", body.toJSONString());
+        System.out.println(sync);
+    }
 ```
 - 输出结果
 ```json
-
+{
+    "code":20004,
+    "id":"123",
+    "message":"NOT FOUND DEVICE [5bffc9eb4cb28b3020053833]",
+    "status":"NOT_FOUND_PARAM"
+}
 ```
 - 接口测试用例
 
 | 参数 | 方法返回（无data）| 结论 |
 | ------ | ------ | ------ |
 
-- 接口测试结果：
+- 接口测试结果：Led2DeviceGroupServiceImpl类中第158行代码有问题
 
 ### 删除设备分组
-- 接口链接：URL地址：http://[域名]/app/led2/[version]/
+- 接口链接：URL地址：http://[域名]/app/led2/[version]/dev_group_del
 - 请求方式：POST
 - 测试示例
 ```java
-
+    @Test
+    public void dev_group_del() {
+        JSONObject body = new JSONObject();
+        body.put("uid", "5d554809560d65403c530b41");
+        body.put("id", "123");
+        String sync = getClient().sync("led2/v1_0/dev_group_del", body.toJSONString());
+        System.out.println(sync);
+    }
 ```
 - 输出结果
 ```json
-
+{
+    "code":200,
+    "id":"123",
+    "message":"OK",
+    "status":"SUCCESS"
+}
 ```
 - 接口测试用例
 
 | 参数 | 方法返回（无data）| 结论 |
 | ------ | ------ | ------ |
+|uid错误|{"code":20010,"id":"123","message":"失败","status":"FAILURE"}|错误|
+|uid正确|{"code":200,"id":"123","message":"OK","status":"SUCCESS"}|正确|
 
-- 接口测试结果：
+- 接口测试结果：当uid不存在时，返回code不正确，不应为20010.
 
 ### 更新设备分组
-- 接口链接：URL地址：http://[域名]/app/led2/[version]/
+- 接口链接：URL地址：http://[域名]/app/led2/[version]/dev_group_update
 - 请求方式：POST
 - 测试示例
 ```java
-
+@Test
+    public void dev_group_update() {
+        JSONObject body = new JSONObject();
+        body.put("uid", "5d2d68526c1152184855b39f");
+        body.put("id", "123");
+        body.put("name", "123");
+        body.put("devices", "5cb695cbf22affbf32eca9a4");
+        String sync = getClient().sync("led2/v1_0/dev_group_update", body.toJSONString());
+        System.out.println(sync);
+    }
 ```
 - 输出结果
 ```json
-
+{"code":20004,"id":"123","message":"DEVICE_GROUP DOES NOT EXIST!","status":"NOT_FOUND_PARAM"}
 ```
 - 接口测试用例
 
 | 参数 | 方法返回（无data）| 结论 |
 | ------ | ------ | ------ |
 
-- 接口测试结果：
+- 接口测试结果：无论devices为何值，返回都是查询不到设备，Led2DeviceGroupServiceImpl类的220行有错误。
 
 ## LED2Program接口文档
 
