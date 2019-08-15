@@ -2,24 +2,58 @@
 # LED2接口测试文档
 ## LED2Device接口测试文档 
 ### 分页查询设备
-- 接口链接：URL地址：http://[域名]/app/led2/[version]/
+- 接口链接：URL地址：http://[域名]/app/led2/[version]/dev_list
 - 请求方式：POST
 - 测试示例
 ```java
-
+@Test
+    public void dev_list() {
+        JSONObject body = new JSONObject();
+        body.put("skip", "0");
+        body.put("limit", "1");
+        body.put("id", "123");
+        String sync = getClient().sync("led2/v1_0/dev_list", body.toJSONString());
+        System.out.println(sync);
+    }
 ```
 - 输出结果
 ```json
-
+{
+    "code":200,
+    "data":[
+        {
+            "screenState":1,
+            "addUser":"yunboqun",
+            "addDate":"2019-04-25 14:37:25",
+            "uid":"5bffc9eb4cb28b3020053833",
+            "lightPole":"59fa6bfa2773e41c80837892",
+            "cardId":"y30-a18-00269",
+            "screenLight":64,
+            "name":"主模块",
+            "width":"128",
+            "online":0,
+            "lock":0,
+            "taskName":"",
+            "brightnessTaskId":"",
+            "taskId":"",
+            "height":"160"
+        }
+    ],
+    "id":"123",
+    "message":"OK",
+    "status":"SUCCESS"
+}
 ```
 - 接口测试用例
 
 | 参数 | 方法返回（无data）| 结论 |
 | ------ | ------ | ------ |
+|skip/limit为负数|{"code":200,"id":"123","message":"OK","status":"SUCCESS"}|错误|
+|skip和limit为正常取值|{"code":200,"id":"123","message":"OK","status":"SUCCESS"}|正确|
 
-- 接口测试结果：
+- 接口测试结果：skip和limit出现负数的情况不应返回success，limit取值大小无限制，建议最大值为100，统一规范，分页查询无总数统计字段。
 
-### 根据ID查询设备
+### 根据ID查询设备（未开发此接口）
 - 接口链接：URL地址：http://[域名]/app/led2/[version]/
 - 请求方式：POST
 - 测试示例
@@ -38,58 +72,133 @@
 - 接口测试结果：
 
 ### 添加设备
-- 接口链接：URL地址：http://[域名]/app/led2/[version]/
+- 接口链接：URL地址：http://[域名]/app/led2/[version]/dev_add
 - 请求方式：POST
 - 测试示例
 ```java
-
+```java
+    @Test
+    public void dev_add() {
+        JSONObject body = new JSONObject();
+        body.put("cardId", "123");
+        body.put("name", "1234");
+        body.put("id", "123");
+        body.put("height", "123");
+        body.put("width", "123");
+        body.put("lightPole", "123");
+        String sync = getClient().sync("led2/v1_0/dev_add", body.toJSONString());
+        System.out.println(sync);
+    }
 ```
 - 输出结果
 ```json
-
+{
+    "code":200,
+    "data":{
+        "uid":"5d552e40560d65403c530b3d",
+        "lightPole":"123",
+        "addUser":"root",
+        "cardId":"123",
+        "name":"1234",
+        "width":"123",
+        "addDate":1565863488685,
+        "height":"123"
+    },
+    "id":"123",
+    "message":"OK",
+    "status":"SUCCESS"
+}
 ```
 - 接口测试用例
 
 | 参数 | 方法返回（无data）| 结论 |
 | ------ | ------ | ------ |
+|cardId重复|success|错误|
+|lightPole不存在|success|错误|
+|width/height取值范围没有控制|success|错误|
+|width/height没有校验只能为数字|success|错误|
 
-- 接口测试结果：
+- 接口测试结果：cardId，lightPole，width，height没有规则校验
 
 ### 修改设备
-- 接口链接：URL地址：http://[域名]/app/led2/[version]/
+- 接口链接：URL地址：http://[域名]/app/led2/[version]/dev_edit
 - 请求方式：POST
 - 测试示例
 ```java
-
+    @Test
+    public void dev_edit() {
+        JSONObject body = new JSONObject();
+        body.put("cardId", "123");
+        body.put("name", "1234");
+        body.put("id", "123");
+        body.put("height", "123");
+        body.put("width", "123");
+        body.put("lightPole", "123");
+        String sync = getClient().sync("led2/v1_0/dev_edit", body.toJSONString());
+        System.out.println(sync);
+    }
 ```
 - 输出结果
 ```json
-
+{
+    "code":200,
+    "data":{
+        "uid":"5d552e40560d65403c530b3d",
+        "lightPole":"123",
+        "addUser":"root",
+        "cardId":"123",
+        "name":"1234",
+        "width":"123",
+        "addDate":1565863488685,
+        "height":"123"
+    },
+    "id":"123",
+    "message":"OK",
+    "status":"SUCCESS"
+}
 ```
 - 接口测试用例
 
 | 参数 | 方法返回（无data）| 结论 |
 | ------ | ------ | ------ |
+|cardId重复|success|错误|
+|lightPole不存在|success|错误|
+|width/height取值范围没有控制|success|错误|
+|width/height没有校验只能为数字|success|错误|
 
-- 接口测试结果：
+- 接口测试结果：cardId，lightPole，width，height没有规则校验
 
 ### 删除设备
-- 接口链接：URL地址：http://[域名]/app/led2/[version]/
+- 接口链接：URL地址：http://[域名]/app/led2/[version]/dev_del
 - 请求方式：POST
 - 测试示例
 ```java
-
+    @Test
+    public void dev_del() {
+        JSONObject body = new JSONObject();
+        body.put("uid", "5d552f3a560d65403c530b40");
+        body.put("id", "123");
+        String sync = getClient().sync("led2/v1_0/dev_del", body.toJSONString());
+        System.out.println(sync);
+    }
 ```
 - 输出结果
 ```json
-
+{
+    "code":200,
+    "id":"123",
+    "message":"OK",
+    "status":"SUCCESS"
+}
 ```
 - 接口测试用例
 
 | 参数 | 方法返回（无data）| 结论 |
 | ------ | ------ | ------ |
+|uid正确|success|正确|
+|uid错误|{"code":20004,"id":"123","message":"Device does not exist","status":"NOT_FOUND_PARAM"}|正确|
 
-- 接口测试结果：
+- 接口测试结果：接口测试通过
 
 ### 设备开屏
 - 接口链接：URL地址：http://[域名]/app/led2/[version]/
@@ -150,7 +259,6 @@
 - 请求方式：POST
 - 测试示例
 ```java
-
 ```
 - 输出结果
 ```json
@@ -310,15 +418,45 @@
 ## LED2DeviceGroup接口测试文档
 
 ### 分页查询分组列表
-- 接口链接：URL地址：http://[域名]/app/led2/[version]/
+- 接口链接：URL地址：http://[域名]/app/led2/[version]/dev_group_query
 - 请求方式：POST
 - 测试示例
 ```java
-
+    @Test
+    public void dev_group_query() {
+        JSONObject body = new JSONObject();
+        body.put("skip", "0");
+        body.put("limit", "1");
+        body.put("id", "123");
+        String sync = getClient().sync("led2/v1_0/dev_group_query", body.toJSONString());
+        System.out.println(sync);
+    }
 ```
 - 输出结果
 ```json
-
+{
+    "code":200,
+    "data":{
+        "deviceGroups":[
+            {
+                "uid":"5c7779ac999a071a205f96c4",
+                "modifyUser":"",
+                "modifyDate":"",
+                "addUser":"",
+                "name":"测试分组1",
+                "deviceList":[
+                    "5c7cdbe4999a0722787d1b36",
+                    "5bffc9eb4cb28b3020053833"
+                ],
+                "addDate":""
+            }
+        ],
+        "total":1
+    },
+    "id":"123",
+    "message":"OK",
+    "status":"SUCCESS"
+}
 ```
 - 接口测试用例
 
