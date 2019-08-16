@@ -587,11 +587,20 @@
 ## LED2Program接口文档
 
 ### 分页查询节目
-- 接口链接：URL地址：http://[域名]/app/led2/[version]/
+- 接口链接：URL地址：http://[域名]/app/led2/[version]/prog_query
 - 请求方式：POST
 - 测试示例
 ```java
-
+    @Test
+    public void prog_query() {
+        JSONObject body = new JSONObject();
+        body.put("skip", "0");
+        body.put("limit", "1");
+        body.put("id", "123");
+        body.put("validate", 0);
+        String sync = getClient().sync("led2/v1_0/prog_query", body.toJSONString());
+        System.out.println(sync);
+    }
 ```
 - 输出结果
 ```json
@@ -602,28 +611,87 @@
 | 参数 | 方法返回（无data）| 结论 |
 | ------ | ------ | ------ |
 
-- 接口测试结果：
+- 接口测试结果：DeviceDaoImpl类141行代码逻辑有问题
 
 ### 根据ID查询节目
-- 接口链接：URL地址：http://[域名]/app/led2/[version]/
+- 接口链接：URL地址：http://[域名]/app/led2/[version]/prog_query_byId
 - 请求方式：POST
 - 测试示例
 ```java
-
+    @Test
+    public void prog_query_byId() {
+        JSONObject body = new JSONObject();
+        body.put("uid", "5c88c4f5999a07202436e51b");
+        body.put("id", "123");
+        String sync = getClient().sync("led2/v1_0/prog_query_byId", body.toJSONString());
+        System.out.println(sync);
+    }
 ```
 - 输出结果
 ```json
-
+{
+    "code":200,
+    "data":{
+        "modifyDate":"",
+        "addUser":"yunboqun",
+        "checkDate":"2019-07-29 14:38:32",
+        "addDate":"2019-05-22 17:25:01",
+        "uid":"5c88c4f5999a07202436e51b",
+        "checkUser":"yunboqun",
+        "modifyUser":"",
+        "name":"测试文字节目7",
+        "width":"128",
+        "failReason":"1",
+        "config":{
+            "totalSize":32999439,
+            "name":"",
+            "width":0,
+            "layers":[
+                {
+                    "sources":[
+                        {
+                            "entryEffectTimeSpan":0,
+                            "_type":"SingleLineText",
+                            "exitEffect":"MOVING_LEFT",
+                            "entryEffect":"MOVING_LEFT",
+                            "speed":20,
+                            "top":0,
+                            "left":0,
+                            "name":"SingleText",
+                            "width":98,
+                            "playTime":1,
+                            "timeSpan":233,
+                            "html":"<span style="font-family:FangSong_GB2312;font-size:40px;color: #ffa500;background: #143643"><b><i>测试文字内容第八次</i></b></span>",
+                            "id":"",
+                            "exitEffectTimeSpan":1,
+                            "height":77
+                        }
+                    ],
+                    "repeat":false
+                }
+            ],
+            "_id":"",
+            "height":0
+        },
+        "height":"160",
+        "validate":2
+    },
+    "id":"123",
+    "message":"OK",
+    "status":"SUCCESS"
+}
 ```
 - 接口测试用例
 
 | 参数 | 方法返回（无data）| 结论 |
 | ------ | ------ | ------ |
+|id和uid正确|success|正确|
+|uid不正确|success|正确|
 
-- 接口测试结果：
+- 接口测试结果：返回结果结构太复杂，接口返回不需要这么复杂，建议按照同级结构返回字段。
 
 ### 添加节目
-- 接口链接：URL地址：http://[域名]/app/led2/[version]/
+- 接口链接：URL地址：http://[域名]/app/led2/[version]/prog_add
 - 请求方式：POST
 - 测试示例
 ```java
@@ -659,47 +727,54 @@
 - 接口测试结果：
 
 ### 删除节目
-- 接口链接：URL地址：http://[域名]/app/led2/[version]/
+- 接口链接：URL地址：http://[域名]/app/led2/[version]/prog_del
 - 请求方式：POST
 - 测试示例
 ```java
-
+    @Test
+    public void prog_del() {
+        JSONObject body = new JSONObject();
+        body.put("uid", "5d1c226dcc5c862ce055c6a0");
+        body.put("id", "123");
+        String sync = getClient().sync("led2/v1_0/prog_del", body.toJSONString());
+        System.out.println(sync);
+    }
 ```
 - 输出结果
 ```json
-
+{
+    "code":200,
+    "id":"123",
+    "message":"OK",
+    "status":"SUCCESS"
+}
 ```
 - 接口测试用例
 
 | 参数 | 方法返回（无data）| 结论 |
 | ------ | ------ | ------ |
+|uid不正确|{"code":20004,"id":"123","message":"PROGRAM DOES NOT EXIST!","status":"NOT_FOUND_PARAM"}|正确|
+|uid正确|{"code":200,"id":"123","message":"OK","status":"SUCCESS"}|正确|
 
-- 接口测试结果：
+- 接口测试结果：测试通过
 
-### 根据审核状态查询节目
-- 接口链接：URL地址：http://[域名]/app/led2/[version]/
-- 请求方式：POST
-- 测试示例
-```java
 
-```
-- 输出结果
-```json
-
-```
-- 接口测试用例
-
-| 参数 | 方法返回（无data）| 结论 |
-| ------ | ------ | ------ |
-
-- 接口测试结果：
 
 ### 提交节目审核结果
-- 接口链接：URL地址：http://[域名]/app/led2/[version]/
+- 接口链接：URL地址：http://[域名]/app/led2/[version]/prog_check
 - 请求方式：POST
 - 测试示例
 ```java
-
+@Test
+    public void prog_check() {
+        JSONObject body = new JSONObject();
+        body.put("uid", "5c88c4f5999a07202436e51b");
+        body.put("id", "123");
+        body.put("validate", "1");
+        body.put("failReason", "123");
+        String sync = getClient().sync("led2/v1_0/prog_check", body.toJSONString());
+        System.out.println(sync);
+    }
 ```
 - 输出结果
 ```json
@@ -709,8 +784,11 @@
 
 | 参数 | 方法返回（无data）| 结论 |
 | ------ | ------ | ------ |
+|uid不存在|{"code":200,"id":"123","message":"OK","status":"SUCCESS"}|错误|
+|validate取值不合法|{"code":200,"id":"123","message":"OK","status":"SUCCESS"}|错误|
+|validate不是数字|报错|错误|
 
-- 接口测试结果：
+- 接口测试结果：接口校验不通过，而且当节目已经被审核后还能继续修改审核，应先判断节目是否被审核过
 
 ## LED2Task
 
