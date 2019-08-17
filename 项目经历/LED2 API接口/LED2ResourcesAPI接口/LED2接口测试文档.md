@@ -202,219 +202,405 @@
 - 接口测试结果：接口测试通过
 
 ### 设备开屏
-- 接口链接：URL地址：http://[域名]/app/led2/[version]/
+- 接口链接：URL地址：http://[域名]/app/led2/[version]/screen_open
 - 请求方式：POST
 - 测试示例
 ```java
-
+    @Test
+    public void screen_open() {
+        JSONObject body = new JSONObject();
+        body.put("uid", "5d3818626c115218f829bf76");
+        body.put("id", "123");
+        String sync = getClient().sync("led2/v1_0/screen_open", body.toJSONString());
+        System.out.println(sync);
+    }
 ```
 - 输出结果
 ```json
-
+{
+    "code":200,
+    "id":"123",
+    "message":"OK",
+    "status":"SUCCESS"
+}
 ```
 - 接口测试用例
 
 | 参数 | 方法返回（无data）| 结论 |
 | ------ | ------ | ------ |
+|uid不正确|{"code":20004,"id":"123","message":"Device does not exist","status":"NOT_FOUND_PARAM"}|正确|
 
-- 接口测试结果：
+- 接口测试结果：测试通过
 
 ### 设备关屏
-- 接口链接：URL地址：http://[域名]/app/led2/[version]/
+- 接口链接：URL地址：http://[域名]/app/led2/[version]/screen_close
 - 请求方式：POST
 - 测试示例
 ```java
-
+    @Test
+    public void screen_close() {
+        JSONObject body = new JSONObject();
+        body.put("uid", "5d3818626c115218f829bf76");
+        body.put("id", "123");
+        String sync = getClient().sync("led2/v1_0/screen_close", body.toJSONString());
+        System.out.println(sync);
+    }
 ```
 - 输出结果
 ```json
-
+{
+    "code":200,
+    "id":"123",
+    "message":"OK",
+    "status":"SUCCESS"
+}
 ```
 - 接口测试用例
 
 | 参数 | 方法返回（无data）| 结论 |
 | ------ | ------ | ------ |
+|uid不正确|{"code":20004,"id":"123","message":"Device does not exist","status":"NOT_FOUND_PARAM"}|正确|
 
-- 接口测试结果：
+- 接口测试结果：测试通过
 
 ### 截屏
-- 接口链接：URL地址：http://[域名]/app/led2/[version]/
+- 接口链接：URL地址：http://[域名]/app/led2/[version]/screen_capture
 - 请求方式：POST
 - 测试示例
 ```java
-
+    @Test
+    public void screen_capture() {
+        JSONObject body = new JSONObject();
+        body.put("uid", "5d3818626c115218f829bf76");
+        body.put("id", "123");
+        String sync = getClient().sync("led2/v1_0/screen_capture", body.toJSONString());
+        System.out.println(sync);
+    }
 ```
 - 输出结果
 ```json
-
+{
+    "code":200,
+    "data":{
+        "src":"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niIwgm2oww2EjFNylJtRVBJXk3J+bb1erdXhPIK03UrYKpVqNRUqlTHZjOclCKhBOUsY5PliuVXekdE0kgoooryT6MKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigD//Z"
+    },
+    "id":"123",
+    "message":"OK",
+    "status":"SUCCESS"
+}
 ```
 - 接口测试用例
 
 | 参数 | 方法返回（无data）| 结论 |
 | ------ | ------ | ------ |
+|uid错误|{"code":20004,"id":"123","message":"DEVICE DOES NOT EXIST!","status":"NOT_FOUND_PARAM"}|正确|
 
-- 接口测试结果：
+- 接口测试结果：测试通过
 
 ### 硬件状态
-- 接口链接：URL地址：http://[域名]/app/led2/[version]/
+- 接口链接：URL地址：http://[域名]/app/led2/[version]/hardware_status
 - 请求方式：POST
 - 测试示例
 ```java
+    @Test
+    public void hardware_status() {
+        JSONObject body = new JSONObject();
+        body.put("uid", "5d3818626c115218f829bf76");
+        body.put("id", "123");
+        String sync = getClient().sync("led2/v1_0/hardware_status", body.toJSONString());
+        System.out.println(sync);
+    }
 ```
 - 输出结果
 ```json
-
+{
+    "code":200,
+    "data":{
+        "externalVoltage1":"0.0V",
+        "externalVoltage2":"0.0V",
+        "cardVoltage":"4.86V",
+        "width":"3",
+        "smoke":"Normal",
+        "temperature":"36.0鈩�",
+        "humidity":"0.0%",
+        "doorOpened":"Open",
+        "version":"97bc",
+        "height":"4"
+    },
+    "id":"123",
+    "message":"OK",
+    "status":"SUCCESS"
+}
 ```
 - 接口测试用例
 
 | 参数 | 方法返回（无data）| 结论 |
 | ------ | ------ | ------ |
+|uid正确|success|正确|
+|uid不正确|{"code":20004,"id":"123","message":"Device does not exist","status":"NOT_FOUND_PARAM"}|正确|
 
-- 接口测试结果：
+- 接口测试结果：设备上报数据出现乱码。
 
 ### 调节设备亮度
-- 接口链接：URL地址：http://[域名]/app/led2/[version]/
+- 接口链接：URL地址：http://[域名]/app/led2/[version]/adjust_light
 - 请求方式：POST
 - 测试示例
 ```java
-
+    @Test
+    public void adjust_light() {
+        JSONObject body = new JSONObject();
+        body.put("uid", "5d3818626c115218f829bf76");
+        body.put("id", "123");
+        body.put("lightValue", "123456");
+        String sync = getClient().sync("led2/v1_0/adjust_light", body.toJSONString());
+        System.out.println(sync);
+    }
 ```
 - 输出结果
 ```json
-
+{
+    "code":200,
+    "id":"123",
+    "message":"OK",
+    "status":"SUCCESS"
+}
 ```
 - 接口测试用例
 
 | 参数 | 方法返回（无data）| 结论 |
 | ------ | ------ | ------ |
+|uid错误|{"code":20004,"id":"123","message":"DEVICE DOES NOT EXIST!","status":"NOT_FOUND_PARAM"}|正确|
+|lightValue错误取值|{"code":200,"id":"123","message":"OK","status":"SUCCESS"}|错误|
+|lightValue出现非数字|报错|错误|
+|uid不在线|{"code":20006,"id":"123","message":"设备离线","status":"DEVICE_OFFONLINE"}|正确|
 
-- 接口测试结果：
+
+- 接口测试结果：本接口开发文档中URL链接错误，望改正。限制接口调用方输入lightValue的范围。
 
 ### 查看设备网络类型
-- 接口链接：URL地址：http://[域名]/app/led2/[version]/
+- 接口链接：URL地址：http://[域名]/app/led2/[version]/network_query
 - 请求方式：POST
 - 测试示例
 ```java
-
+    @Test
+    public void network_query() {
+        JSONObject body = new JSONObject();
+        body.put("uid", "5d3818626c115218f829bf76");
+        body.put("id", "123");
+        String sync = getClient().sync("led2/v1_0/network_query", body.toJSONString());
+        System.out.println(sync);
+    }
 ```
 - 输出结果
 ```json
-
+{
+    "code":200,
+    "data":{
+        "network":"ETH"
+    },
+    "id":"123",
+    "message":"OK",
+    "status":"SUCCESS"
+}
 ```
 - 接口测试用例
 
 | 参数 | 方法返回（无data）| 结论 |
 | ------ | ------ | ------ |
+|uid错误|{"code":20004,"id":"123","message":"Device does not exist","status":"NOT_FOUND_PARAM"}|正确|
+|uid正确|success|正确|
 
-- 接口测试结果：
+- 接口测试结果：接口测试通过
 
 ### 更新设备APP版本
-- 接口链接：URL地址：http://[域名]/app/led2/[version]/
+- 接口链接：URL地址：http://[域名]/app/led2/[version]/version_update
 - 请求方式：POST
 - 测试示例
 ```java
-
+    @Test
+    public void version_update() {
+        JSONObject body = new JSONObject();
+        body.put("uid", "5d3818626c115218f829bf76");
+        body.put("id", "123");
+        body.put("appUrl", "123");
+        String sync = getClient().sync("led2/v1_0/version_update", body.toJSONString());
+        System.out.println(sync);
+    }
 ```
 - 输出结果
 ```json
-
+{
+    "code":200,
+    "id":"123",
+    "message":"OK",
+    "status":"SUCCESS"
+}
 ```
 - 接口测试用例
 
 | 参数 | 方法返回（无data）| 结论 |
 | ------ | ------ | ------ |
+|appUrl不合法|success|成功|
 
-- 接口测试结果：
+- 接口测试结果：appUrl需要与B/S端一样通过格式校验
 
 ### 更新设备参数设置
-- 接口链接：URL地址：http://[域名]/app/led2/[version]/
+- 接口链接：URL地址：http://[域名]/app/led2/[version]/config_adv
 - 请求方式：POST
 - 测试示例
 ```java
-
+@Test
+    public void config_adv() {
+        JSONObject body = new JSONObject();
+        body.put("uid", "5d3818626c115218f829bf76");
+        body.put("id", "123");
+        body.put("serverURL", "123");
+        body.put("companyId", "123");
+        body.put("realtimeURL", "123");
+        body.put("usbProgramPwd", "123");
+        String sync = getClient().sync("led2/v1_0/config_adv", body.toJSONString());
+        System.out.println(sync);
+    }
 ```
 - 输出结果
 ```json
-
+{
+    "code":200,
+    "id":"123",
+    "message":"OK",
+    "status":"SUCCESS"
+}
 ```
 - 接口测试用例
 
 | 参数 | 方法返回（无data）| 结论 |
 | ------ | ------ | ------ |
+|usbProgramPwd参数缺失|{"code":200,"id":"123","message":"OK","status":"SUCCESS"}|错误|
+|serverURL和companyId和realtimeURL和usbProgramPwd无校验逻辑|success|错误|
 
-- 接口测试结果：
+- 接口测试结果：返回体中应包括更新的内容。
 
 ### 设备重启
-- 接口链接：URL地址：http://[域名]/app/led2/[version]/
+- 接口链接：URL地址：http://[域名]/app/led2/[version]/dev_reboot
 - 请求方式：POST
 - 测试示例
 ```java
-
+@Test
+    public void dev_reboot() {
+        JSONObject body = new JSONObject();
+        body.put("uid", "5d3818626c115218f829bf76");
+        body.put("id", "123");
+        String sync = getClient().sync("led2/v1_0/dev_reboot", body.toJSONString());
+        System.out.println(sync);
+    }
 ```
 - 输出结果
 ```json
-
+{
+    "code":200,
+    "id":"123",
+    "message":"OK",
+    "status":"SUCCESS"
+}
 ```
 - 接口测试用例
 
 | 参数 | 方法返回（无data）| 结论 |
 | ------ | ------ | ------ |
+|uid错误|{"code":20004,"id":"123","message":"Device does not exist","status":"NOT_FOUND_PARAM"}|正确|
+|uid正确|success|正确|
 
-- 接口测试结果：
+- 接口测试结果：接口测试通过
 
 ### 设备加锁
-- 接口链接：URL地址：http://[域名]/app/led2/[version]/
+- 接口链接：URL地址：http://[域名]/app/led2/[version]/dev_lock
 - 请求方式：POST
 - 测试示例
 ```java
-
+    @Test
+    public void dev_lock() {
+        JSONObject body = new JSONObject();
+        body.put("uid", "5d3818626c115218f829bf76");
+        body.put("id", "123");
+        body.put("lock", "1");
+        String sync = getClient().sync("led2/v1_0/dev_lock", body.toJSONString());
+        System.out.println(sync);
+    }
 ```
 - 输出结果
 ```json
-
+{"code":200,"data":{},"id":"123","message":"OK","status":"SUCCESS"}
 ```
 - 接口测试用例
 
 | 参数 | 方法返回（无data）| 结论 |
 | ------ | ------ | ------ |
+|lock为取值范围之外|{"code":200,"data":{"code":20003,"message":"参数校验失败","status":"BAD_PARAM"},"id":"123","message":"OK","status":"SUCCESS"}|错误|
+|当设备处于无锁状态，lock=0调用接口|{"code":200,"data":{},"id":"123","message":"OK","status":"SUCCESS"}|错误|
+|当设备处于无所状态时，lock=1调用接口|数据库字段没有改变|错误|
+|当设备不在线|{"code":200,"data":{},"id":"123","message":"OK","status":"SUCCESS"}|错误|
 
-- 接口测试结果：
+- 接口测试结果：没有判断设备当前是否处于有锁或无锁状态，数据库字段没有改变。当设备不在线时，不应返回success。
 
 ### 自动亮度
-- 接口链接：URL地址：http://[域名]/app/led2/[version]/
+- 接口链接：URL地址：http://[域名]/app/led2/[version]/dev_autoBrightness
 - 请求方式：POST
 - 测试示例
 ```java
-
+    @Test
+    public void dev_autoBrightness() {
+        JSONObject body = new JSONObject();
+        body.put("uid", "5d3818626c115218f829bf76");
+        body.put("id", "123");
+        body.put("sensitivity", "111111");
+        body.put("minBrightness", "111111");
+        String sync = getClient().sync("led2/v1_0/dev_autoBrightness", body.toJSONString());
+        System.out.println(sync);
+    }
 ```
 - 输出结果
 ```json
-
+{"code":200,"id":"123","message":"OK","status":"SUCCESS"}
 ```
 - 接口测试用例
 
 | 参数 | 方法返回（无data）| 结论 |
 | ------ | ------ | ------ |
+|sensitivity和minBrightness无大小限制|success|错误|
+|sensitivity和minBrightness不是数字|报错|错误|
 
-- 接口测试结果：
+- 接口测试结果：设备不在线不应返回成功,返回体中应包括下发指令的参数。
 
 ### 设备同步
-- 接口链接：URL地址：http://[域名]/app/led2/[version]/
+- 接口链接：URL地址：http://[域名]/app/led2/[version]/dev_sync
 - 请求方式：POST
 - 测试示例
 ```java
-
+@Test
+    public void dev_sync() {
+        JSONObject body = new JSONObject();
+        body.put("uid", "5d3818626c115218f829bf76");
+        body.put("id", "123");
+        body.put("time", "111qa111");
+        body.put("brightness", "111qa111");
+        body.put("volume", "111qa111");
+        body.put("screenSwitch", "111qa111");
+        body.put("delaySync", "111qa111");
+        body.put("checkNtpTime", "111qa111");
+        String sync = getClient().sync("led2/v1_0/dev_sync", body.toJSONString());
+        System.out.println(sync);
+    }
 ```
 - 输出结果
 ```json
-
+{"code":200,"id":"123","message":"OK","status":"SUCCESS"}
 ```
 - 接口测试用例
 
 | 参数 | 方法返回（无data）| 结论 |
 | ------ | ------ | ------ |
 
-- 接口测试结果：
+- 接口测试结果：所有的参数都无校验逻辑。
 
 ## LED2DeviceGroup接口测试文档
 
@@ -793,24 +979,82 @@
 ## LED2Task
 
 ### 分页查询任务列表
-- 接口链接：URL地址：http://[域名]/app/led2/[version]/
+- 接口链接：URL地址：http://[域名]/app/led2/[version]/task_query
 - 请求方式：POST
 - 测试示例
 ```java
-
+@Test
+    public void task_query() {
+        JSONObject body = new JSONObject();
+        body.put("id", "123");
+        body.put("skip", "0");
+        body.put("limit", "1");
+        String sync = getClient().sync("led2/v1_0/task_query", body.toJSONString());
+        System.out.println(sync);
+    }
 ```
 - 输出结果
 ```json
+{
+    "code":200,
+    "data":{
+        "tasks":[
+            {
+                "uid":"5d3fe7c9f22affc6027ad9bc",
+                "modifyUser":"yunboqun",
+                "task":{
+                    "items":[
+                        {
+                            "programId":"5d3fe7b2f22affc6027ad9bb",
+                            "repeatTimes":"100",
+                            "schedules":[
+                                {
+                                    "dateType":"All",
+                                    "endDate":"",
+                                    "timeType":"All",
+                                    "startTime":"",
+                                    "endTime":"",
+                                    "filterType":"None",
+                                    "startDate":"",
+                                    "weekFilter":[
 
+                                    ]
+                                }
+                            ]
+                        }
+                    ]
+                },
+                "modifyDate":"2019-08-14 18:30:56",
+                "addUser":"yunboqun",
+                "name":"文字啊啊啊啊啊",
+                "deviceList":[
+                    "5d3818626c115218f829bf76"
+                ],
+                "programList":[
+                    "5d3fe7b2f22affc6027ad9bb"
+                ],
+                "sceneList":[
+
+                ],
+                "addDate":"2019-07-30 14:46:33"
+            }
+        ],
+        "total":1
+    },
+    "id":"123",
+    "message":"OK",
+    "status":"SUCCESS"
+}
 ```
 - 接口测试用例
 
 | 参数 | 方法返回（无data）| 结论 |
 | ------ | ------ | ------ |
+|skip/limit为负数|全量数据返回|错误|
 
-- 接口测试结果：
+- 接口测试结果：skip和limit取值范围校验。返回体结构太复杂。
 
-### 根据ID查询任务
+### 根据ID查询任务（未开发此接口）
 - 接口链接：URL地址：http://[域名]/app/led2/[version]/
 - 请求方式：POST
 - 测试示例
@@ -829,7 +1073,7 @@
 - 接口测试结果：
 
 ### 添加任务
-- 接口链接：URL地址：http://[域名]/app/led2/[version]/
+- 接口链接：URL地址：http://[域名]/app/led2/[version]/task_add
 - 请求方式：POST
 - 测试示例
 ```java
@@ -844,7 +1088,7 @@
 | 参数 | 方法返回（无data）| 结论 |
 | ------ | ------ | ------ |
 
-- 接口测试结果：
+- 接口测试结果：建议添加时不要让接口调用方拼凑数据结构体，数据格式在业务中自己拼装。
 
 ### 修改任务
 - 接口链接：URL地址：http://[域名]/app/led2/[version]/
@@ -862,61 +1106,112 @@
 | 参数 | 方法返回（无data）| 结论 |
 | ------ | ------ | ------ |
 
-- 接口测试结果：
+- 接口测试结果：建议不要让接口调用方拼凑数据结构体，数据格式在业务中自己拼装。
 
 ### 删除任务
-- 接口链接：URL地址：http://[域名]/app/led2/[version]/
+- 接口链接：URL地址：http://[域名]/app/led2/[version]/task_del
 - 请求方式：POST
 - 测试示例
 ```java
-
+@Test
+    public void task_del() {
+        JSONObject body = new JSONObject();
+        body.put("id", "123");
+        body.put("uid","5d3fe7c9f22affc6027ad9bc");
+        String sync = getClient().sync("led2/v1_0/task_del", body.toJSONString());
+        System.out.println(sync);
+    }
 ```
 - 输出结果
 ```json
-
+{"code":20004,"id":"123","message":"TASK DOES NOT EXIST!","status":"NOT_FOUND_PARAM"}
 ```
 - 接口测试用例
 
 | 参数 | 方法返回（无data）| 结论 |
 | ------ | ------ | ------ |
+|uid错误|{"code":20010,"id":"123","message":"失败","status":"FAILURE"}|错误|
 
-- 接口测试结果：
+- 接口测试结果：Led2TaskServiceImpl类457行逻辑错误。
 
 ### 任务绑定设备
-- 接口链接：URL地址：http://[域名]/app/led2/[version]/
+- 接口链接：URL地址：http://[域名]/app/led2/[version]/task_bind_dev
 - 请求方式：POST
 - 测试示例
 ```java
-
+@Test
+    public void task_bind_dev() {
+        JSONObject body = new JSONObject();
+        body.put("id", "123");
+        body.put("uid","5d3fe7c9f22affc6027ad9bc");
+        body.put("devices","5c7cdbe4999a0722787d1b36");
+        String sync = getClient().sync("led2/v1_0/task_bind_dev", body.toJSONString());
+        System.out.println(sync);
+    }
 ```
 - 输出结果
 ```json
-
+{
+    "code":200,
+    "data":{
+        "deviceList":[
+            "5c7cdbe4999a0722787d1b36"
+        ],
+        "uid":"5d3fe7c9f22affc6027ad9bc"
+    },
+    "id":"123",
+    "message":"OK",
+    "status":"SUCCESS"
+}
 ```
 - 接口测试用例
 
 | 参数 | 方法返回（无data）| 结论 |
 | ------ | ------ | ------ |
+|devices不存在|{"code":20003,"id":"123","message":"DEVICE_ID NOT FOUND! DEVICE_ID: 5c7cdbe4999a0722787111d1b36","status":"BAD_PARAM"}|正确|
+|devices多个时没有去重|success|错误|
+|devices每一次调用会覆盖数据库之前的数据|success|错误|
 
-- 接口测试结果：
+- 接口测试结果：建议绑定设备为原子操作，一次只能绑定一个设备，业务逻辑有问题，不应该覆盖devices的数据。
 
 ### 任务发布
-- 接口链接：URL地址：http://[域名]/app/led2/[version]/
+- 接口链接：URL地址：http://[域名]/app/led2/[version]/task_publish
 - 请求方式：POST
 - 测试示例
 ```java
-
+@Test
+    public void task_publish() {
+        JSONObject body = new JSONObject();
+        body.put("id", "123");
+        body.put("uid","5d3fe7c9f22affc6027ad9bc");
+        String sync = getClient().sync("led2/v1_0/task_publish", body.toJSONString());
+        System.out.println(sync);
+    }
 ```
 - 输出结果
 ```json
+{
+    "code":200,
+    "data":{
+        "failureDevList":[
+            "y30-718-00580"
+        ],
+        "successDevList":[
 
+        ]
+    },
+    "id":"123",
+    "message":"OK",
+    "status":"SUCCESS"
+}
 ```
 - 接口测试用例
 
 | 参数 | 方法返回（无data）| 结论 |
 | ------ | ------ | ------ |
+|当任务绑定的设备都不在线时|success|错误|
 
-- 接口测试结果：
+- 接口测试结果：当任务绑定的设备都不在线时不应返回正确，应给接口调用方提示准确信息。
 
 ## LED2Task（定时亮度与定时开关屏）接口测试文档
 
