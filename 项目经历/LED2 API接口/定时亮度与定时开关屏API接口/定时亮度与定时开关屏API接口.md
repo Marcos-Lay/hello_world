@@ -801,7 +801,7 @@
 
 ### 修改定时开关屏任务
 - 概述：此接口用来更新定时开关屏任务
-- 接口定义：http：// [域名]/app/led2task/[version]/updateTimedBrightness  
+- 接口定义：http：// [域名]/app/led2task/[version]/updateSwitchScreenTask  
 - 请求方式：POST
 - 输入格式： 
 
