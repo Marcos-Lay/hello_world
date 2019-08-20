@@ -48,7 +48,7 @@
 ```
 - 接口测试用例
 
-| 参数 | 方法返回（无data）| 结论 |
+| 参数 | 方法返回（省略data）| 结论 |
 | ------ | ------ | ------ |
 |skip/limit为负数|{"code":200,"id":"123","message":"OK","status":"SUCCESS"}|错误|
 |skip和limit为正常取值|{"code":200,"id":"123","message":"OK","status":"SUCCESS"}|正确|
@@ -68,7 +68,7 @@
 ```
 - 接口测试用例
 
-| 参数 | 方法返回（无data）| 结论 |
+| 参数 | 方法返回（省略data）| 结论 |
 | ------ | ------ | ------ |
 
 - 接口测试结果：
@@ -112,7 +112,7 @@
 ```
 - 接口测试用例
 
-| 参数 | 方法返回（无data）| 结论 |
+| 参数 | 方法返回（省略data）| 结论 |
 | ------ | ------ | ------ |
 |cardId重复|success|错误|
 |lightPole不存在|success|错误|
@@ -160,7 +160,7 @@
 ```
 - 接口测试用例
 
-| 参数 | 方法返回（无data）| 结论 |
+| 参数 | 方法返回（省略data）| 结论 |
 | ------ | ------ | ------ |
 |cardId重复|success|错误|
 |lightPole不存在|success|错误|
@@ -194,7 +194,7 @@
 ```
 - 接口测试用例
 
-| 参数 | 方法返回（无data）| 结论 |
+| 参数 | 方法返回（省略data）| 结论 |
 | ------ | ------ | ------ |
 |uid正确|success|正确|
 |uid错误|{"code":20004,"id":"123","message":"Device does not exist","status":"NOT_FOUND_PARAM"}|正确|
@@ -226,7 +226,7 @@
 ```
 - 接口测试用例
 
-| 参数 | 方法返回（无data）| 结论 |
+| 参数 | 方法返回（省略data）| 结论 |
 | ------ | ------ | ------ |
 |uid不正确|{"code":20004,"id":"123","message":"Device does not exist","status":"NOT_FOUND_PARAM"}|正确|
 
@@ -257,7 +257,7 @@
 ```
 - 接口测试用例
 
-| 参数 | 方法返回（无data）| 结论 |
+| 参数 | 方法返回（省略data）| 结论 |
 | ------ | ------ | ------ |
 |uid不正确|{"code":20004,"id":"123","message":"Device does not exist","status":"NOT_FOUND_PARAM"}|正确|
 
@@ -291,7 +291,7 @@
 ```
 - 接口测试用例
 
-| 参数 | 方法返回（无data）| 结论 |
+| 参数 | 方法返回（省略data）| 结论 |
 | ------ | ------ | ------ |
 |uid错误|{"code":20004,"id":"123","message":"DEVICE DOES NOT EXIST!","status":"NOT_FOUND_PARAM"}|正确|
 
@@ -334,7 +334,7 @@
 ```
 - 接口测试用例
 
-| 参数 | 方法返回（无data）| 结论 |
+| 参数 | 方法返回（省略data）| 结论 |
 | ------ | ------ | ------ |
 |uid正确|success|正确|
 |uid不正确|{"code":20004,"id":"123","message":"Device does not exist","status":"NOT_FOUND_PARAM"}|正确|
@@ -367,7 +367,7 @@
 ```
 - 接口测试用例
 
-| 参数 | 方法返回（无data）| 结论 |
+| 参数 | 方法返回（省略data）| 结论 |
 | ------ | ------ | ------ |
 |uid错误|{"code":20004,"id":"123","message":"DEVICE DOES NOT EXIST!","status":"NOT_FOUND_PARAM"}|正确|
 |lightValue错误取值|{"code":200,"id":"123","message":"OK","status":"SUCCESS"}|错误|
@@ -405,7 +405,7 @@
 ```
 - 接口测试用例
 
-| 参数 | 方法返回（无data）| 结论 |
+| 参数 | 方法返回（省略data）| 结论 |
 | ------ | ------ | ------ |
 |uid错误|{"code":20004,"id":"123","message":"Device does not exist","status":"NOT_FOUND_PARAM"}|正确|
 |uid正确|success|正确|
@@ -438,7 +438,7 @@
 ```
 - 接口测试用例
 
-| 参数 | 方法返回（无data）| 结论 |
+| 参数 | 方法返回（省略data）| 结论 |
 | ------ | ------ | ------ |
 |appUrl不合法|success|成功|
 
@@ -473,7 +473,7 @@
 ```
 - 接口测试用例
 
-| 参数 | 方法返回（无data）| 结论 |
+| 参数 | 方法返回（省略data）| 结论 |
 | ------ | ------ | ------ |
 |usbProgramPwd参数缺失|{"code":200,"id":"123","message":"OK","status":"SUCCESS"}|错误|
 |serverURL和companyId和realtimeURL和usbProgramPwd无校验逻辑|success|错误|
@@ -505,7 +505,7 @@
 ```
 - 接口测试用例
 
-| 参数 | 方法返回（无data）| 结论 |
+| 参数 | 方法返回（省略data）| 结论 |
 | ------ | ------ | ------ |
 |uid错误|{"code":20004,"id":"123","message":"Device does not exist","status":"NOT_FOUND_PARAM"}|正确|
 |uid正确|success|正确|
@@ -533,7 +533,7 @@
 ```
 - 接口测试用例
 
-| 参数 | 方法返回（无data）| 结论 |
+| 参数 | 方法返回（省略data）| 结论 |
 | ------ | ------ | ------ |
 |lock为取值范围之外|{"code":200,"data":{"code":20003,"message":"参数校验失败","status":"BAD_PARAM"},"id":"123","message":"OK","status":"SUCCESS"}|错误|
 |当设备处于无锁状态，lock=0调用接口|{"code":200,"data":{},"id":"123","message":"OK","status":"SUCCESS"}|错误|
@@ -564,7 +564,7 @@
 ```
 - 接口测试用例
 
-| 参数 | 方法返回（无data）| 结论 |
+| 参数 | 方法返回（省略data）| 结论 |
 | ------ | ------ | ------ |
 |sensitivity和minBrightness无大小限制|success|错误|
 |sensitivity和minBrightness不是数字|报错|错误|
@@ -597,7 +597,7 @@
 ```
 - 接口测试用例
 
-| 参数 | 方法返回（无data）| 结论 |
+| 参数 | 方法返回（省略data）| 结论 |
 | ------ | ------ | ------ |
 
 - 接口测试结果：所有的参数都无校验逻辑。
@@ -647,7 +647,7 @@
 ```
 - 接口测试用例
 
-| 参数 | 方法返回（无data）| 结论 |
+| 参数 | 方法返回（省略data）| 结论 |
 | ------ | ------ | ------ |
 |skip/limit为负数|{"code":200,"id":"123","message":"OK","status":"SUCCESS"}|错误|
 |skip和limit为正常取值|{"code":200,"id":"123","message":"OK","status":"SUCCESS"}|正确|
@@ -674,7 +674,7 @@
 ```
 - 接口测试用例
 
-| 参数 | 方法返回（无data）| 结论 |
+| 参数 | 方法返回（省略data）| 结论 |
 | ------ | ------ | ------ |
 |uid不正确|{"code":200,"data":{},"id":"123","message":"OK","status":"SUCCESS"}|正确|
 
@@ -706,7 +706,7 @@
 ```
 - 接口测试用例
 
-| 参数 | 方法返回（无data）| 结论 |
+| 参数 | 方法返回（省略data）| 结论 |
 | ------ | ------ | ------ |
 
 - 接口测试结果：Led2DeviceGroupServiceImpl类中第158行代码有问题
@@ -736,7 +736,7 @@
 ```
 - 接口测试用例
 
-| 参数 | 方法返回（无data）| 结论 |
+| 参数 | 方法返回（省略data）| 结论 |
 | ------ | ------ | ------ |
 |uid错误|{"code":20010,"id":"123","message":"失败","status":"FAILURE"}|错误|
 |uid正确|{"code":200,"id":"123","message":"OK","status":"SUCCESS"}|正确|
@@ -765,7 +765,7 @@
 ```
 - 接口测试用例
 
-| 参数 | 方法返回（无data）| 结论 |
+| 参数 | 方法返回（省略data）| 结论 |
 | ------ | ------ | ------ |
 
 - 接口测试结果：无论devices为何值，返回都是查询不到设备，Led2DeviceGroupServiceImpl类的220行有错误。
@@ -794,7 +794,7 @@
 ```
 - 接口测试用例
 
-| 参数 | 方法返回（无data）| 结论 |
+| 参数 | 方法返回（省略data）| 结论 |
 | ------ | ------ | ------ |
 
 - 接口测试结果：DeviceDaoImpl类141行代码逻辑有问题
@@ -869,7 +869,7 @@
 ```
 - 接口测试用例
 
-| 参数 | 方法返回（无data）| 结论 |
+| 参数 | 方法返回（省略data）| 结论 |
 | ------ | ------ | ------ |
 |id和uid正确|success|正确|
 |uid不正确|success|正确|
@@ -889,7 +889,7 @@
 ```
 - 接口测试用例
 
-| 参数 | 方法返回（无data）| 结论 |
+| 参数 | 方法返回（省略data）| 结论 |
 | ------ | ------ | ------ |
 
 - 接口测试结果：
@@ -907,7 +907,7 @@
 ```
 - 接口测试用例
 
-| 参数 | 方法返回（无data）| 结论 |
+| 参数 | 方法返回（省略data）| 结论 |
 | ------ | ------ | ------ |
 
 - 接口测试结果：
@@ -937,7 +937,7 @@
 ```
 - 接口测试用例
 
-| 参数 | 方法返回（无data）| 结论 |
+| 参数 | 方法返回（省略data）| 结论 |
 | ------ | ------ | ------ |
 |uid不正确|{"code":20004,"id":"123","message":"PROGRAM DOES NOT EXIST!","status":"NOT_FOUND_PARAM"}|正确|
 |uid正确|{"code":200,"id":"123","message":"OK","status":"SUCCESS"}|正确|
@@ -968,7 +968,7 @@
 ```
 - 接口测试用例
 
-| 参数 | 方法返回（无data）| 结论 |
+| 参数 | 方法返回（省略data）| 结论 |
 | ------ | ------ | ------ |
 |uid不存在|{"code":200,"id":"123","message":"OK","status":"SUCCESS"}|错误|
 |validate取值不合法|{"code":200,"id":"123","message":"OK","status":"SUCCESS"}|错误|
@@ -1048,7 +1048,7 @@
 ```
 - 接口测试用例
 
-| 参数 | 方法返回（无data）| 结论 |
+| 参数 | 方法返回（省略data）| 结论 |
 | ------ | ------ | ------ |
 |skip/limit为负数|全量数据返回|错误|
 
@@ -1067,7 +1067,7 @@
 ```
 - 接口测试用例
 
-| 参数 | 方法返回（无data）| 结论 |
+| 参数 | 方法返回（省略data）| 结论 |
 | ------ | ------ | ------ |
 
 - 接口测试结果：
@@ -1085,7 +1085,7 @@
 ```
 - 接口测试用例
 
-| 参数 | 方法返回（无data）| 结论 |
+| 参数 | 方法返回（省略data）| 结论 |
 | ------ | ------ | ------ |
 
 - 接口测试结果：建议添加时不要让接口调用方拼凑数据结构体，数据格式在业务中自己拼装。
@@ -1103,7 +1103,7 @@
 ```
 - 接口测试用例
 
-| 参数 | 方法返回（无data）| 结论 |
+| 参数 | 方法返回（省略data）| 结论 |
 | ------ | ------ | ------ |
 
 - 接口测试结果：建议不要让接口调用方拼凑数据结构体，数据格式在业务中自己拼装。
@@ -1128,7 +1128,7 @@
 ```
 - 接口测试用例
 
-| 参数 | 方法返回（无data）| 结论 |
+| 参数 | 方法返回（省略data）| 结论 |
 | ------ | ------ | ------ |
 |uid错误|{"code":20010,"id":"123","message":"失败","status":"FAILURE"}|错误|
 
@@ -1166,7 +1166,7 @@
 ```
 - 接口测试用例
 
-| 参数 | 方法返回（无data）| 结论 |
+| 参数 | 方法返回（省略data）| 结论 |
 | ------ | ------ | ------ |
 |devices不存在|{"code":20003,"id":"123","message":"DEVICE_ID NOT FOUND! DEVICE_ID: 5c7cdbe4999a0722787111d1b36","status":"BAD_PARAM"}|正确|
 |devices多个时没有去重|success|错误|
@@ -1207,7 +1207,7 @@
 ```
 - 接口测试用例
 
-| 参数 | 方法返回（无data）| 结论 |
+| 参数 | 方法返回（省略data）| 结论 |
 | ------ | ------ | ------ |
 |当任务绑定的设备都不在线时|success|错误|
 
@@ -1216,6 +1216,138 @@
 ## LED2Task（定时亮度与定时开关屏）接口测试文档
 
 ### 根据ID查询定时亮度任务
+- 接口链接：URL地址：http://[域名]/app/led2/[version]/queryOneTimedBrightness
+- 请求方式：POST
+- 测试示例
+```java
+    @Test
+    public void queryOne_device() {
+        JSONObject body = new JSONObject();
+        body.put("id", "5cc12e366c11524a447cd0af");
+        String sync = getClient().sync("led2task/v1_0/queryOneTimedBrightness", body.toJSONString());
+        System.out.println(sync);
+    }
+```
+- 输出结果
+```json
+{
+    "code":200,
+    "data":{
+        "endDate":"",
+        "monthFilter":[
+
+        ],
+        "timeType":"All",
+        "type":"4",
+        "weekFilter":[
+
+        ],
+        "dateType":"All",
+        "brightness":"30",
+        "name":"test",
+        "devList":[
+            "5cb695cbf22affbf32eca9a4"
+        ],
+        "startTime":"",
+        "id":"5cc12e366c11524a447cd0af",
+        "endTime":"",
+        "filterType":"None",
+        "startDate":"",
+        "taskStatus":1
+    },
+    "message":"OK",
+    "status":"SUCCESS"
+}
+```
+- 接口测试用例
+
+| 参数 | 方法返回（省略data）| 结论 |
+| ------ | ------ | ------ |
+|id错误|{"code":200,"data":{},"message":"OK","status":"SUCCESS"}|正确|
+|id正确|{"code":200,"data":{},"message":"OK","status":"SUCCESS"}|正确|
+
+- 接口测试结果：测试通过
+
+### 分页查询定时亮度任务
+- 接口链接：URL地址：http://[域名]/app/led2/[version]/queryTimedBrightness
+- 请求方式：POST
+- 测试示例
+```java
+    @Test
+    public void query_device() {
+        JSONObject body = new JSONObject();
+        body.put("skip", "0");
+        body.put("limit", "1");
+        String sync = getClient().sync("led2task/v1_0/queryTimedBrightness", body.toJSONString());
+        System.out.println(sync);
+    }
+```
+- 输出结果
+```json
+{
+    "code":200,
+    "data":{
+        "tasks":[
+            {
+                "endDate":"",
+                "monthFilter":[
+
+                ],
+                "timeType":"All",
+                "type":"4",
+                "weekFilter":[
+
+                ],
+                "dateType":"All",
+                "brightness":"30",
+                "name":"test",
+                "devList":[
+                    "5cb695cbf22affbf32eca9a4"
+                ],
+                "startTime":"",
+                "id":"5cc12e366c11524a447cd0af",
+                "endTime":"",
+                "filterType":"None",
+                "startDate":"",
+                "taskStatus":1
+            }
+        ],
+        "total":13
+    },
+    "message":"OK",
+    "status":"SUCCESS"
+}
+```
+- 接口测试用例
+
+| 参数 | 方法返回（省略data）| 结论 |
+| ------ | ------ | ------ |
+|skip/limit不符合取值范围|{"code":20003,"message":"Bad_param limit[-1]","status":"BAD_PARAM"}|正确|
+|skip/limit不是数字类型|{"code":20003,"message":"Bad_param limit[-1a]","status":"BAD_PARAM"}|正确|
+|limit超过100|{"code":20003,"message":"Bad_param limit[111]","status":"BAD_PARAM"}|正确|
+|skip和limit符合取值范围|{"code":200,"data":{},"message":"OK","status":"SUCCESS"}|正确|
+
+- 接口测试结果：接口测试通过
+
+### 添加定时亮度任务
+- 接口链接：URL地址：http://[域名]/app/led2/[version]/addTimedBrightness
+- 请求方式：POST
+- 测试示例
+```java
+
+```
+- 输出结果
+```json
+
+```
+- 接口测试用例
+
+| 参数 | 方法返回（省略data）| 结论 |
+| ------ | ------ | ------ |
+
+- 接口测试结果：
+
+### 修改定时亮度任务
 - 接口链接：URL地址：http://[域名]/app/led2/[version]/
 - 请求方式：POST
 - 测试示例
@@ -1228,41 +1360,239 @@
 ```
 - 接口测试用例
 
-| 参数 | 方法返回（无data）| 结论 |
+| 参数 | 方法返回（省略data）| 结论 |
 | ------ | ------ | ------ |
 
 
 - 接口测试结果：
 
-### 分页查询定时亮度任务
-
-### 添加定时亮度任务
-
-### 修改定时亮度任务
-
 ### 删除定时亮度任务
+- 接口链接：URL地址：http://[域名]/app/led2/[version]/
+- 请求方式：POST
+- 测试示例
+```java
+
+```
+- 输出结果
+```json
+
+```
+- 接口测试用例
+
+| 参数 | 方法返回（省略data）| 结论 |
+| ------ | ------ | ------ |
+
+
+- 接口测试结果：
 
 ### 开启定时亮度任务
+- 接口链接：URL地址：http://[域名]/app/led2/[version]/
+- 请求方式：POST
+- 测试示例
+```java
+
+```
+- 输出结果
+```json
+
+```
+- 接口测试用例
+
+| 参数 | 方法返回（省略data）| 结论 |
+| ------ | ------ | ------ |
+
+
+- 接口测试结果：
 
 ### 关闭定时亮度任务
+- 接口链接：URL地址：http://[域名]/app/led2/[version]/
+- 请求方式：POST
+- 测试示例
+```java
+
+```
+- 输出结果
+```json
+
+```
+- 接口测试用例
+
+| 参数 | 方法返回（省略data）| 结论 |
+| ------ | ------ | ------ |
+
+
+- 接口测试结果：
 
 ### 根据ID查询定时开关屏任务
+- 接口链接：URL地址：http://[域名]/app/led2/[version]/
+- 请求方式：POST
+- 测试示例
+```java
+
+```
+- 输出结果
+```json
+
+```
+- 接口测试用例
+
+| 参数 | 方法返回（省略data）| 结论 |
+| ------ | ------ | ------ |
+
+
+- 接口测试结果：
 
 ### 分页查询定时开关屏任务
+- 接口链接：URL地址：http://[域名]/app/led2/[version]/
+- 请求方式：POST
+- 测试示例
+```java
+
+```
+- 输出结果
+```json
+
+```
+- 接口测试用例
+
+| 参数 | 方法返回（省略data）| 结论 |
+| ------ | ------ | ------ |
+
+
+- 接口测试结果：
 
 ### 添加定时开关屏任务
+- 接口链接：URL地址：http://[域名]/app/led2/[version]/
+- 请求方式：POST
+- 测试示例
+```java
+
+```
+- 输出结果
+```json
+
+```
+- 接口测试用例
+
+| 参数 | 方法返回（省略data）| 结论 |
+| ------ | ------ | ------ |
+
+
+- 接口测试结果：
 
 ### 修改定时开关屏任务
+- 接口链接：URL地址：http://[域名]/app/led2/[version]/
+- 请求方式：POST
+- 测试示例
+```java
+
+```
+- 输出结果
+```json
+
+```
+- 接口测试用例
+
+| 参数 | 方法返回（省略data）| 结论 |
+| ------ | ------ | ------ |
+
+
+- 接口测试结果：
 
 ### 删除定时开关屏任务
+- 接口链接：URL地址：http://[域名]/app/led2/[version]/
+- 请求方式：POST
+- 测试示例
+```java
+
+```
+- 输出结果
+```json
+
+```
+- 接口测试用例
+
+| 参数 | 方法返回（省略data）| 结论 |
+| ------ | ------ | ------ |
+
+
+- 接口测试结果：
 
 ### 开启定时开关屏任务
+- 接口链接：URL地址：http://[域名]/app/led2/[version]/
+- 请求方式：POST
+- 测试示例
+```java
+
+```
+- 输出结果
+```json
+
+```
+- 接口测试用例
+
+| 参数 | 方法返回（省略data）| 结论 |
+| ------ | ------ | ------ |
+
+
+- 接口测试结果：
 
 ### 关闭定时开关屏任务
+- 接口链接：URL地址：http://[域名]/app/led2/[version]/
+- 请求方式：POST
+- 测试示例
+```java
+
+```
+- 输出结果
+```json
+
+```
+- 接口测试用例
+
+| 参数 | 方法返回（省略data）| 结论 |
+| ------ | ------ | ------ |
+
+
+- 接口测试结果：
 
 ### 任务绑定设备
+- 接口链接：URL地址：http://[域名]/app/led2/[version]/
+- 请求方式：POST
+- 测试示例
+```java
+
+```
+- 输出结果
+```json
+
+```
+- 接口测试用例
+
+| 参数 | 方法返回（省略data）| 结论 |
+| ------ | ------ | ------ |
+
+
+- 接口测试结果：
 
 ### 任务解除绑定设备
+- 接口链接：URL地址：http://[域名]/app/led2/[version]/
+- 请求方式：POST
+- 测试示例
+```java
+
+```
+- 输出结果
+```json
+
+```
+- 接口测试用例
+
+| 参数 | 方法返回（省略data）| 结论 |
+| ------ | ------ | ------ |
+
+
+- 接口测试结果：
 
 ## LED2Resources接口测试文档
 ### 分页查询资源
@@ -1323,7 +1653,7 @@
 ```
 - 接口测试用例
 
-| 参数 | 方法返回（无data）| 结论 |
+| 参数 | 方法返回（省略data）| 结论 |
 | ------ | ------ | ------ | ------ |
 | id/skip/limit为空时 | {"code":20002,"id":"","message":"id/skip/limit","status":"MISSING_REQUEST_PARAM"} | 正确 |
 | id为空字符串时 | {"code":200,"id":"","message":"OK","status":"SUCCESS"}| 错误 |
@@ -1370,7 +1700,7 @@
 ```
 - 接口测试用例
 
-| 参数 | 方法返回（无data）| 结论 |
+| 参数 | 方法返回（省略data）| 结论 |
 | ------ | ------ | ------ | ------ |
 | id/uid为空时 | {"code":20002,"id":"","message":"id/uid","status":"MISSING_REQUEST_PARAM"} | 正确 |
 | id为空字符串时 | {"code":200,"id":"","message":"OK","status":"SUCCESS"}| 错误 |
